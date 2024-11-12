@@ -542,3 +542,93 @@ footer {
     margin-right: 0.5rem;
     font-size: 1.3rem;
 }
+
+/* General Mobile Adjustments for Smaller Screens */
+@media (max-width: 600px) {
+    /* Navbar */
+    header {
+        padding: 0.5rem;
+    }
+
+    .nav-links {
+        display: none; /* Hide navigation links on mobile */
+    }
+
+    .social-icons {
+        margin-left: auto; /* Align social icons to the far right */
+    }
+
+    /* Intro Section */
+    #intro {
+        flex-direction: column;
+        padding: 2rem 1rem;
+        min-height: 60vh; /* Make the section shorter */
+        text-align: center; /* Center the text */
+        gap: 1rem; /* Reduce gap */
+    }
+
+    .intro-left h1 {
+        font-size: 2.5rem; /* Reduce font size */
+    }
+
+    .intro-left p {
+        font-size: 1rem; /* Reduce paragraph size */
+    }
+
+    /* Experience Section */
+    .experience-full-page {
+        padding: 2rem 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .tabs {
+        flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+        gap: 0.5rem; /* Reduce gap between tab buttons */
+    }
+
+    .tab-button {
+        flex: 1 1 100%; /* Make each button take up the full width */
+        font-size: 0.9rem; /* Reduce font size for buttons */
+        padding: 0.6rem 0.8rem; /* Adjust padding */
+    }
+
+    .tab-content-container {
+        margin-top: 1.5rem; /* Reduce spacing above tab content */
+    }
+
+    .skills-overview, .certifications {
+        max-width: 100%; /* Allow cards to take up full width on mobile */
+        margin-bottom: 2rem; /* Add spacing below cards */
+    }
+
+    /* Skills and Certifications Section */
+    .skills-list li, .certifications-list li {
+        font-size: 1rem; /* Reduce font size */
+    }
+
+    /* Profile Picture */
+    .profile-picture {
+        width: 200px; /* Reduce profile picture size */
+        height: 200px;
+    }
+}
+
+/* Mobile Adjustments for Even Smaller Screens (Below 400px) */
+@media (max-width: 400px) {
+    /* Further adjustments for very small screens */
+    .intro-left h1 {
+        font-size: 2rem; /* Further reduce heading size */
+    }
+
+    .tab-button {
+        font-size: 0.8rem; /* Further reduce tab button font size */
+        padding: 0.5rem; /* Compact padding */
+    }
+
+    .skills-overview h3, .certifications h3 {
+        font-size: 1.2rem; /* Adjust section heading font size */
+    }
+
+    .skills-list li, .certifications-list li {
+        font-size: 0.9rem; /* Adjust font size for list items */
+    }
+}
