@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deni Bravo | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const aboutSection = document.querySelector(".about-me");
+      
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                aboutSection.style.opacity = 1;
+                aboutSection.style.transform = "translateY(0)";
+                observer.unobserve(aboutSection); // Stop observing after the animation triggers
+              }
+            });
+          }, { threshold: 0.3 }); // Adjust threshold as needed
+      
+          observer.observe(aboutSection);
+        });
+      </script>
+
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="nav-links">
+        <a href="#" class="name-link">Deni Bravo</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+      </div>
+
+      <div class="social-icons">
+              <!-- Social Icons -->
+      <a href="https://linkedin.com/in/denibravo" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/denibravo" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:denibravo59@outlook.com">
+        <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Intro Section -->
+  <section id="intro" class="full-page-section">
+    <div class="intro-left">
+      <h1>Hi, <br><span class="typing-effect">I'm <span class="underline">Deni <span class="highlight">Bravo</span></span></span></h1>
+      <p>I code things. Occasionally, they work.</p>
+    </div>
+    <!-- <div class="intro-right">
+      <img src="img/deni.png" alt="Deni Bravo" class="profile-picture">
+    </div> -->
+  </section>
+  <div class="scroll-down">
+    <span>&#8595;</span>
+  </div>
+  
+<!-- About Me Section -->
+<section id="about" class="about-me full-page-section">
+    <h2>About Me</h2> <!-- Keep header outside of about-content to keep it centered -->
+    <div class="about-content">
+        <img src="img/deni.png" alt="Deni Bravo" class="profile-pic">
+        <div class="about-text">
+            <p>I am a current student at <a href="https://www.moravian.edu/" target="_blank"><span class="highlight">Moravian University</span></a> majoring in Computer Science. I'm passionate about technology, learning new skills, and building projects that make a difference.</p>
+            <p>Over the years, I’ve developed a strong foundation in various programming languages and tools, and I’m always excited to tackle new challenges. Here are some of the technologies I’ve worked with:</p>
+            <!-- Technology List -->
+            <ul class="tech-list">
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>AWS</li>
+                <li>SQL</li>
+                <li>Machine Learning</li>
+            </ul>
+            <p>Aside from Computer Science, I love sports such as boxing and soccer! As well as a love for content creation!</p>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>Built and designed by Deni Bravo</p>
+    <p>All rights reserved &copy;</p>
+    </footer>
+</body>
+</html>

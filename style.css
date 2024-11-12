@@ -1,0 +1,301 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: #0e1b2a;
+    line-height: 1.6;
+}
+
+/* Navbar */
+header {
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0e1b2a;
+    color: #ffffff;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: Poppins;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+.nav-links a:hover {
+    color: #66d9ff;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+    align-items: center;
+}
+
+.social-icons a {
+    color: #66d9ff;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ffffff;
+}
+
+/* Specific Link Style */
+header nav a.name-link {
+    color: #ffffff;
+    cursor: default;
+    font-weight: bold;
+}
+
+header nav a.name-link:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Intro Section */
+#intro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    min-height: 90vh;
+    gap: 2rem;
+}
+
+.intro-left {
+    flex: 1;
+}
+
+.intro-left h1 {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+/* Underline Effect */
+.underline {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+}
+
+.underline::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #66d9ff;
+    bottom: 0;
+    left: 0;
+}
+
+.intro-left p {
+    font-size: 1.25rem;
+    color: #b0c4de;
+}
+
+/* Typing Effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 13ch; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.typing-effect {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #66d9ff;
+    animation: typing 2s steps(27, end), blink 0.5s step-end infinite alternate;
+    width: 13ch;
+}
+
+/* Profile Picture */
+.profile-picture {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Highlighted Text */
+.highlight {
+    color: #66d9ff;
+}
+
+/* Animated Background */
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background: linear-gradient(135deg, #0e1b2a, #152a3d, #1b3b52, #152a3d);
+    background-size: 200% 200%;
+    animation: gradientBackground 10s ease infinite;
+}
+
+/* Scroll-Down Arrow */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: #66d9ff;
+    animation: bounce 2s infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* About Me Section */
+.about-me {
+    padding: 3rem 1rem;
+    background-color: #152a3d;
+    color: #ffffff;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.about-me::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #66d9ff;
+    margin: 0 auto 1rem auto;
+}
+
+.about-me h2 {
+    font-size: 2rem;
+    color: #66d9ff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.about-me p {
+    font-size: 1.1rem;
+    margin: 0.5rem auto;
+    margin-bottom: 1rem;
+    max-width: 700px;
+    color: #b0c4de;
+}
+
+/* Technology List */
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+    list-style: none;
+    padding: 1rem 0 0;
+}
+
+.tech-list li {
+    background-color: #1b3b52;
+    color: #66d9ff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tech-list li:hover {
+    background-color: #66d9ff;
+    color: #1b3b52;
+    transform: translateY(-5px);
+}
+
+/* About Me Section Content */
+/* .about-content {
+    display: flex;
+    align-items: flex-end; 
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    text-align: left; 
+    justify-content: flex-end; 
+} */
+
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+}
+
+/* Profile Picture in About Me */
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 10%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    float: left;
+    margin-right: 2rem;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+/* Full-Height Sections */
+/* .full-page-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+} */
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Footer */
+footer {
+    padding: 2rem 1rem;
+    background-color: #152a3d;
+    color: rgba(255, 255, 255, 0.479);
+    text-align: center;
+    font-size: 1rem;
+}
