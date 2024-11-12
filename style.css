@@ -10,6 +10,7 @@ body {
     color: #ffffff;
     background-color: #0e1b2a;
     line-height: 1.6;
+
 }
 
 /* Navbar */
@@ -150,7 +151,8 @@ header nav a.name-link:hover {
     white-space: nowrap;
     border-right: 3px solid #66d9ff;
     animation: typing 2s steps(27, end), blink 0.5s step-end infinite alternate;
-    width: 12.60ch;
+    width: 100%; /* Allow full width to ensure it doesn't get cut off */
+    max-width: 100%; /* Prevent it from exceeding the available width */
 }
 
 /* Profile Picture */
@@ -294,6 +296,10 @@ body {
     max-width: 600px;
 }
 
+.about-text a{
+    text-decoration: none;
+}
+
 /* Media Query for Smaller Screens (960px or Below) */
 @media (max-width: 960px) {
     .about-content {
@@ -316,6 +322,7 @@ body {
     margin: 1rem auto;
     color: #b0c4de;
 }
+
 
 /* Technology List */
 .tech-list {
@@ -544,27 +551,23 @@ footer {
 }
 
 /* General Mobile Adjustments for Smaller Screens */
-@media (max-width: 600px) {
-    /* Navbar */
-    header {
-        padding: 0.5rem;
-    }
-
-    .nav-links {
-        display: none; /* Hide navigation links on mobile */
-    }
-
-    .social-icons {
-        margin-left: auto; /* Align social icons to the far right */
+@media (max-width: 900px) {
+    /* General Section Padding */
+    section {
+        padding: 2rem 1rem;
+        max-width: 95%; /* Keep the content width at 95% of the screen */
+        margin: auto; /* Center the section horizontally */
     }
 
     /* Intro Section */
     #intro {
         flex-direction: column;
         padding: 2rem 1rem;
-        min-height: 60vh; /* Make the section shorter */
-        text-align: center; /* Center the text */
-        gap: 1rem; /* Reduce gap */
+        min-height: 60vh;
+        text-align: center;
+        gap: 1rem;
+        max-width: 95%;
+        margin: auto; /* Center the intro section */
     }
 
     .intro-left h1 {
@@ -572,63 +575,150 @@ footer {
     }
 
     .intro-left p {
-        font-size: 1rem; /* Reduce paragraph size */
+        font-size: 1rem;
     }
 
     /* Experience Section */
     .experience-full-page {
-        padding: 2rem 1rem; /* Reduce padding for smaller screens */
+        padding: 2rem 1rem;
+        max-width: 95%; /* Set max-width for better control on small screens */
+        margin: auto;
     }
 
     .tabs {
-        flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
-        gap: 0.5rem; /* Reduce gap between tab buttons */
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 
     .tab-button {
-        flex: 1 1 100%; /* Make each button take up the full width */
-        font-size: 0.9rem; /* Reduce font size for buttons */
-        padding: 0.6rem 0.8rem; /* Adjust padding */
+        flex: 1 1 100%;
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
     }
 
     .tab-content-container {
-        margin-top: 1.5rem; /* Reduce spacing above tab content */
+        margin-top: 1.5rem;
+        max-width: 95%; /* Keep tab content comfortably within the screen */
+        margin: auto;
     }
 
     .skills-overview, .certifications {
-        max-width: 100%; /* Allow cards to take up full width on mobile */
-        margin-bottom: 2rem; /* Add spacing below cards */
-    }
-
-    /* Skills and Certifications Section */
-    .skills-list li, .certifications-list li {
-        font-size: 1rem; /* Reduce font size */
+        max-width: 95%;
+        margin: auto;
+        margin-bottom: 2rem;
     }
 
     /* Profile Picture */
     .profile-picture {
-        width: 200px; /* Reduce profile picture size */
+        width: 200px;
         height: 200px;
     }
 }
 
-/* Mobile Adjustments for Even Smaller Screens (Below 400px) */
-@media (max-width: 400px) {
-    /* Further adjustments for very small screens */
-    .intro-left h1 {
-        font-size: 2rem; /* Further reduce heading size */
+/* Media Query for Smaller Screens (Below 600px) */
+@media (max-width: 600px) {
+    /* Intro Section */
+    #intro {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center text */
+        padding: 10rem 3rem; /* Reduce padding */
+        min-height: 50vh; /* Reduce the height of the section */
+    }
+
+    .intro-left p {
+        font-size: 1rem; /* Smaller paragraph text */
+    }
+
+    .typing-effect {
+        width: auto; /* Allow the width to adjust automatically */
+        max-width: 100%; /* Prevent overflow */
+    }
+
+    /* About Me Section */
+    .about-me {
+        padding: 2rem 1rem; /* Reduce padding for a better fit */
+    }
+
+    .about-content {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center; /* Center align for mobile */
+        gap: 1rem; /* Reduce the gap between image and text */
+    }
+
+    .profile-pic {
+        width: 200px; /* Smaller image size for mobile */
+        height: 200px; /* Match width for a square look */
+        margin-bottom: 1rem; /* Add some space below the image */
+    }
+
+    .about-text {
+        max-width: 90%; /* Prevent the text from touching edges */
+        margin: 0 auto; /* Center the text */
+    }
+
+    .tech-list {
+        gap: 0.5rem; /* Reduce gap between items */
+    }
+
+    .tech-list li {
+        font-size: 0.9rem; /* Reduce the size of tech list items */
+        padding: 0.3rem 0.8rem; /* Adjust padding for smaller items */
+    }
+
+    /* Experience Section */
+    .experience-full-page {
+        padding: 2rem 1rem; /* Reduce padding */
+    }
+
+    .experience-content {
+        max-width: 90%; /* Fit content within the screen */
+        margin: auto; /* Center the content */
+    }
+
+    /* Tabs for Experience */
+    .tabs {
+        flex-wrap: wrap; /* Wrap buttons if needed */
+        gap: 0.5rem; /* Reduce spacing between tabs */
     }
 
     .tab-button {
-        font-size: 0.8rem; /* Further reduce tab button font size */
-        padding: 0.5rem; /* Compact padding */
+        flex: 1 1 100%; /* Make each tab button take full width */
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        padding: 0.7rem 0.5rem; /* Adjust padding */
     }
 
-    .skills-overview h3, .certifications h3 {
-        font-size: 1.2rem; /* Adjust section heading font size */
+    .tab-content-container {
+        margin-top: 1.5rem;
+        max-width: 90%; /* Prevent content from reaching edges */
     }
 
-    .skills-list li, .certifications-list li {
-        font-size: 0.9rem; /* Adjust font size for list items */
+    /* General Body Padding for Mobile */
+    body {
+        padding: 0 0.5rem; /* Add padding on the sides */
+    }
+
+    /* Navbar on Mobile */
+    header {
+        padding: 0.8rem 1rem; /* Adjust padding for mobile */
+    }
+
+    .nav-links {
+        display: none; /* Hide nav links for smaller screens */
+    }
+
+    .social-icons {
+        margin-left: 0; /* Align social icons to center on mobile */
+    }
+
+    .social-icons a {
+        font-size: 1.2rem; /* Slightly reduce icon size for better fit */
+        margin: 0 0.3rem; /* Reduce gap between social icons */
+    }
+
+    .typing-effect {
+        width: auto;
+        max-width: 100%; /* Allow the typing effect to be responsive */
+        animation: typing 2s steps(20, end), blink 0.5s step-end infinite alternate;
     }
 }
+
