@@ -14,17 +14,20 @@ body {
 
 /* Navbar */
 header {
-    padding: 0.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0e1b2a;
+    position: fixed; /* Keep the navbar at the top of the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make sure the navbar takes the full width */
+    padding: 0.25rem; /* Adjust this to change the height of the navbar */
+    background-color: #0e1b2a; /* Keep the existing background color */
     color: #ffffff;
+    z-index: 1000; /* Ensure the navbar is on top of other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: adds a shadow to make it stand out */
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     width: 100%;
     font-family: Poppins;
@@ -77,18 +80,30 @@ header nav a.name-link:hover {
     text-decoration: none;
 }
 
+/* Media Query for Smaller Screens (900px or Below) */
+@media (max-width: 700px) {
+    .nav-links {
+        display: none; /* Hide navigation links */
+    }
+
+    .social-icons {
+        margin-left: auto; /* Keep the icons on the far right */
+    }
+}
+
 /* Intro Section */
 #intro {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3rem;
-    min-height: 90vh;
-    gap: 2rem;
+    padding: 3rem 1rem;
+    min-height: 100vh;
+    position: relative;
 }
 
 .intro-left {
     flex: 1;
+    height: 100%;
 }
 
 .intro-left h1 {
@@ -135,7 +150,7 @@ header nav a.name-link:hover {
     white-space: nowrap;
     border-right: 3px solid #66d9ff;
     animation: typing 2s steps(27, end), blink 0.5s step-end infinite alternate;
-    width: 13ch;
+    width: 12.60ch;
 }
 
 /* Profile Picture */
@@ -159,6 +174,7 @@ header nav a.name-link:hover {
     100% { background-position: 0% 50%; }
 }
 
+
 body {
     background: linear-gradient(135deg, #0e1b2a, #152a3d, #1b3b52, #152a3d);
     background-size: 200% 200%;
@@ -180,6 +196,29 @@ body {
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+}
+
+/* Media Query for Smaller Screens (Below 900px) */
+@media (max-width: 600px) {
+    #intro {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center; /* Center text */
+        padding: 10rem 3rem; /* Reduce padding */
+        min-height: 50vh; /* Reduce the height of the section */
+    }
+
+    .intro-left h1 {
+        font-size: 3rem; /* Reduce font size */
+    }
+
+    .intro-left p {
+        font-size: 1rem; /* Reduce paragraph size for readability */
+    }
+
+    .scroll-down {
+        display: none; /* Hide the scroll-down arrow */
+    }
+
 }
 
 /* About Me Section */
@@ -209,11 +248,72 @@ body {
     text-align: center;
 }
 
+/* About Me Section Content */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+    text-align: left;
+    flex-wrap: wrap;
+}
+
+/* About Me Header */
+#about-header {
+    font-size: 2rem;
+    color: #66d9ff;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+/* Image on the Left */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Centers the image within its container */
+}
+
+.profile-pic {
+    width: 400px;
+    height: 400px;
+    border-radius: 10%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+/* About Me Text */
+.about-text {
+    flex: 2;
+    max-width: 600px;
+}
+
+/* Media Query for Smaller Screens (960px or Below) */
+@media (max-width: 960px) {
+    .about-content {
+        flex-direction: column; /* Stack the elements vertically */
+        text-align: center; /* Center the text */
+    }
+
+    .profile-pic {
+        margin-bottom: 1.5rem; /* Add space below the picture */
+    }
+
+    .about-me{
+        transition: none;
+        opacity: 1;
+    }
+}
+
 .about-me p {
     font-size: 1.1rem;
-    margin: 0.5rem auto;
-    margin-bottom: 1rem;
-    max-width: 700px;
+    margin: 1rem auto;
     color: #b0c4de;
 }
 
@@ -221,7 +321,6 @@ body {
 .tech-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     gap: 1rem;
     list-style: none;
     padding: 1rem 0 0;
@@ -243,37 +342,14 @@ body {
     transform: translateY(-5px);
 }
 
-/* About Me Section Content */
-/* .about-content {
+/* Full-Height Sections */
+.full-page-section {
+    min-height: 100vh;
     display: flex;
-    align-items: flex-end; 
-    gap: 2rem;
-    max-width: 1000px;
-    margin: auto;
-    text-align: left; 
-    justify-content: flex-end; 
-} */
-
-@media (min-width: 768px) {
-    .about-content {
-        flex-direction: column;
-    }
-}
-
-/* Profile Picture in About Me */
-.profile-pic {
-    width: 250px;
-    height: 250px;
-    border-radius: 10%;
-    object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    float: left;
-    margin-right: 2rem;
-}
-
-.profile-pic:hover {
-    transform: scale(1.1);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    flex-direction: column;
 }
 
 /* Full-Height Sections */
@@ -298,4 +374,171 @@ footer {
     color: rgba(255, 255, 255, 0.479);
     text-align: center;
     font-size: 1rem;
+}
+
+/* Experience Section */
+.experience-full-page {
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    background-color: #1b3b52;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(20px); /* Initial position for the fade-in effect */
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+/* Header Styling */
+.experience-full-page h2 {
+    color: #66d9ff;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-button {
+    background-color: #0e1b2a;
+    color: #66d9ff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #66d9ff;
+    color: #0e1b2a;
+}
+
+.tab-button:hover {
+    background-color: #66d9ff;
+    color: #0e1b2a;
+}
+
+/* Tab Content */
+.tab-content-container {
+    max-width: 800px;
+    text-align: left;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 600px) {
+    .tab-button {
+        font-size: 0.9rem; /* Smaller font size for buttons */
+        padding: 0.6rem 1.2rem; /* Adjust padding */
+    }
+}
+
+/* Experience List with Arrow Bullet Points */
+.experience-list {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.experience-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: #b0c4de;
+}
+
+.experience-list i {
+    color: #66d9ff;
+    margin-right: 0.5rem; /* Space between arrow and text */
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.experience-list li:hover i {
+    transform: translateX(5px); /* Small movement effect on hover */
+}
+
+/* Experience Date Styling */
+.experience-date {
+    color: #b0c4de; /* Light blue-gray color for better transparency effect */
+    opacity: 0.7; /* Make it more transparent */
+    font-size: 1rem; /* Slightly smaller font size */
+    margin-bottom: 1rem; /* Add some space below the date */
+}
+
+/* Additional Content in Experience Section */
+.additional-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 3rem;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Skills Overview */
+.skills-overview, .certifications {
+    background-color: #0e1b2a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    text-align: left;
+}
+
+.skills-overview h3, .certifications h3 {
+    color: #66d9ff;
+    margin-bottom: 1rem;
+}
+
+/* Skills List */
+.skills-list, .certifications-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skills-list li, .certifications-list li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #b0c4de;
+    display: flex;
+    align-items: center;
+}
+
+.skills-list i, .certifications-list i {
+    color: #66d9ff;
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
 }

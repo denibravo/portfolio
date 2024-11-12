@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -17,13 +18,47 @@
               if (entry.isIntersecting) {
                 aboutSection.style.opacity = 1;
                 aboutSection.style.transform = "translateY(0)";
-                observer.unobserve(aboutSection); // Stop observing after the animation triggers
+                observer.unobserve(aboutSection); 
               }
             });
-          }, { threshold: 0.3 }); // Adjust threshold as needed
+          }, { threshold: 0.3 }); 
       
           observer.observe(aboutSection);
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                // Hide all tab contents
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to the clicked button
+                button.classList.add('active');
+                // Show corresponding tab content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Fade-in effect on section when in view
+        const experienceSection = document.querySelector('.experience-full-page');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    experienceSection.style.opacity = 1;
+                    experienceSection.style.transform = 'translateY(0)';
+                    observer.unobserve(experienceSection);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(experienceSection);
+    });
       </script>
 
   <!-- Navbar -->
@@ -52,10 +87,10 @@
   </header>
 
   <!-- Intro Section -->
-  <section id="intro" class="full-page-section">
+  <section id="intro">
     <div class="intro-left">
       <h1>Hi, <br><span class="typing-effect">I'm <span class="underline">Deni <span class="highlight">Bravo</span></span></span></h1>
-      <p>I code things. Occasionally, they work.</p>
+      <p>I code things. Sometimes, they work.</p>
     </div>
     <!-- <div class="intro-right">
       <img src="img/deni.png" alt="Deni Bravo" class="profile-picture">
@@ -67,9 +102,11 @@
   
 <!-- About Me Section -->
 <section id="about" class="about-me full-page-section">
-    <h2>About Me</h2> <!-- Keep header outside of about-content to keep it centered -->
+    <h2 id="about-header">About Me</h2>
     <div class="about-content">
-        <img src="img/deni.png" alt="Deni Bravo" class="profile-pic">
+        <div class="about-image">
+            <img src="img/deni.png" alt="Deni Bravo" class="profile-pic">
+        </div>
         <div class="about-text">
             <p>I am a current student at <a href="https://www.moravian.edu/" target="_blank"><span class="highlight">Moravian University</span></a> majoring in Computer Science. I'm passionate about technology, learning new skills, and building projects that make a difference.</p>
             <p>Over the years, I’ve developed a strong foundation in various programming languages and tools, and I’m always excited to tackle new challenges. Here are some of the technologies I’ve worked with:</p>
@@ -84,7 +121,66 @@
                 <li>SQL</li>
                 <li>Machine Learning</li>
             </ul>
-            <p>Aside from Computer Science, I love sports such as boxing and soccer! As well as a love for content creation!</p>
+            <p><br>Aside from Computer Science, I love sports such as boxing and soccer! As well as a love for content creation!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience-full-page">
+    <h2>Experience</h2>
+    <div class="tabs">
+        <button class="tab-button active" data-tab="tab1">MIAC Analytics</button>
+        <button class="tab-button" data-tab="tab2">BKWeb Productions</button>
+        <button class="tab-button" data-tab="tab3">Freelance Projects</button>
+    </div>
+    <div class="tab-content-container">
+        <div id="tab1" class="tab-content active">
+            <h3>Software Developer @ <span class="highlight">MIAC Analytics</span></h3>
+            <p class="experience-date">May 2023 - December 2023</p>
+            <ul class="experience-list">
+                <li><i class="fas fa-arrow-right"></i> Worked on a machine learning project involving data cleaning and research on record linkage.</li>
+                <li><i class="fas fa-arrow-right"></i> Implemented record linkage methods into the company's software.</li>
+                <li><i class="fas fa-arrow-right"></i> Transitioned to frontend development after an internship extension.</li>
+            </ul>
+        </div>
+        <div id="tab2" class="tab-content">
+            <h3>Web Developer @ <span class="highlight">BKWeb Productions</span></h3>
+            <p class="experience-date">October 2022 - May 2023</p>
+            <ul class="experience-list">
+                <li><i class="fas fa-arrow-right"></i> Assisted with backend system optimization.</li>
+                <li><i class="fas fa-arrow-right"></i> Improved the workflow of the company using modern technologies.</li>
+                <li><i class="fas fa-arrow-right"></i> Participated in weekly meetings to propose solutions for various tech challenges.</li>
+            </ul>
+        </div>
+        <div id="tab3" class="tab-content">
+            <h3>Freelance Projects</h3>
+            <ul class="experience-list">
+                <li><i class="fas fa-arrow-right"></i> Developed full-stack web applications for small businesses.</li>
+                <li><i class="fas fa-arrow-right"></i> Built machine learning models to assist clients in data-driven decisions.</li>
+                <li><i class="fas fa-arrow-right"></i> Collaborated with clients to understand their needs and provide tailored software solutions.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Additional Content: Skills Overview and Certifications -->
+    <div class="additional-content">
+        <div class="skills-overview">
+            <h3>Key Skills</h3>
+            <ul class="skills-list">
+                <li><i class="fas fa-check-circle"></i> Machine Learning & Data Analysis</li>
+                <li><i class="fas fa-check-circle"></i> Frontend & Backend Development</li>
+                <li><i class="fas fa-check-circle"></i> Record Linkage & Data Cleaning</li>
+                <li><i class="fas fa-check-circle"></i> Client Collaboration & Project Management</li>
+            </ul>
+        </div>
+        <div class="certifications">
+            <h3>Awards</h3>
+            <ul class="certifications-list">
+                <li><i class="fas fa-certificate"></i> Internship Excellence Award</li>
+                <li><i class="fas fa-certificate"></i> Charles H. Davison Memorial Scholarship Endowment in Electronics & Information Systems</li>
+                <li><i class="fas fa-certificate"></i> Machine Learning Specialization - Coursera</li>
+            </ul>
         </div>
     </div>
 </section>
