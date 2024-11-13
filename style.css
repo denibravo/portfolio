@@ -374,7 +374,7 @@ body {
 
 /* Footer */
 footer {
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
     background-color: #152a3d;
     color: rgba(255, 255, 255, 0.479);
     text-align: center;
@@ -549,12 +549,11 @@ footer {
     font-size: 1.3rem;
 }
 
-/* Projects Section */
+/* Fade-in Animation for Project Section */
 .projects {
-    padding: 3rem 1rem;
-    background-color: #152a3d;
-    color: #ffffff;
-    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
 }
 
 .projects h2 {
@@ -662,6 +661,53 @@ footer {
     color: #0e1b2a;
     transform: translateY(-3px);
 }
+
+/* Smooth Scroll for Navbar Links */
+html {
+    scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navbar Resume Link */
+.nav-links a.resume-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+.nav-links a.resume-link:hover {
+    color: #66d9ff;
+}
+
+/* Footer Resume Button */
+.footer-resume {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #66d9ff;
+    color: #0e1b2a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-resume:hover {
+    background-color: #ffffff;
+    color: #0e1b2a;
+}
+
 
 /* Media Query for Smaller Screens */
 @media (max-width: 900px) {
