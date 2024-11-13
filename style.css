@@ -151,8 +151,6 @@ header nav a.name-link:hover {
     white-space: nowrap;
     border-right: 3px solid #66d9ff;
     animation: typing 2s steps(27, end), blink 0.5s step-end infinite alternate;
-    width: 100%; /* Allow full width to ensure it doesn't get cut off */
-    max-width: 100%; /* Prevent it from exceeding the available width */
 }
 
 /* Profile Picture */
@@ -479,16 +477,17 @@ footer {
 
 .experience-list li {
     display: flex;
-    align-items: center;
-    margin-bottom: 0.5rem;
+    align-items: flex-start; /* Align items to the top to keep the arrow in line with the first line of text */
+    margin-bottom: 1rem; /* Add more spacing between list items for readability */
     font-size: 1.1rem;
     color: #b0c4de;
 }
 
 .experience-list i {
     color: #66d9ff;
-    margin-right: 0.5rem; /* Space between arrow and text */
+    margin-right: 0.75rem; /* Increased space between arrow and text for better readability */
     font-size: 1.2rem;
+    line-height: 1.3; /* Helps keep arrow aligned with the text line height */
     transition: transform 0.3s ease;
 }
 
@@ -548,6 +547,133 @@ footer {
     color: #66d9ff;
     margin-right: 0.5rem;
     font-size: 1.3rem;
+}
+
+/* Projects Section */
+.projects {
+    padding: 3rem 1rem;
+    background-color: #152a3d;
+    color: #ffffff;
+    text-align: center;
+}
+
+.projects h2 {
+    font-size: 2rem;
+    color: #66d9ff;
+    margin-bottom: 2rem;
+}
+
+.project-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #1b3b52;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: calc(33% - 2rem);
+    max-width: 400px;
+    min-width: 280px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: #66d9ff;
+    margin-bottom: 1rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #b0c4de;
+    margin-bottom: 2rem;
+}
+
+.project-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.project-links a {
+    color: #66d9ff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    color: #ffffff;
+}
+
+/* Folder Icon */
+.project-card::before {
+    content: "\f07b"; /* Font Awesome folder icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #66d9ff;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+/* Technology Tags */
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.project-technologies span {
+    background-color: #0e1b2a;
+    color: #66d9ff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-technologies span:hover {
+    background-color: #66d9ff;
+    color: #0e1b2a;
+    transform: translateY(-3px);
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 900px) {
+    .project-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 600px) {
+    .project-card {
+        width: 100%;
+    }
 }
 
 /* General Mobile Adjustments for Smaller Screens */
@@ -621,7 +747,7 @@ footer {
     #intro {
         flex-direction: column; /* Stack elements vertically */
         text-align: center; /* Center text */
-        padding: 10rem 3rem; /* Reduce padding */
+        padding: 5rem 3rem; /* Reduce padding */
         min-height: 50vh; /* Reduce the height of the section */
     }
 
@@ -663,6 +789,7 @@ footer {
     .tech-list li {
         font-size: 0.9rem; /* Reduce the size of tech list items */
         padding: 0.3rem 0.8rem; /* Adjust padding for smaller items */
+        position: center;
     }
 
     /* Experience Section */
