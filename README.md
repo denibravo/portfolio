@@ -1,4 +1,4 @@
-# Portfolio Website README
+# README
 
 ## Overview
 This repository contains the code for my personal portfolio website. It showcases my projects, skills, and experience in web development and machine learning. The website features sections for an introduction, about me, projects, and more.
@@ -25,11 +25,11 @@ This repository contains the code for my personal portfolio website. It showcase
 To set up and run this project locally, follow these steps:
 1. Clone this repository to your local machine using:
    ```
-   git clone https://github.com/your-username/portfolio-website.git
+   git clone https://github.com/denibravo/portfolio.git
    ```
 2. Navigate to the project directory:
    ```
-   cd portfolio-website
+   cd portfolio
    ```
 3. Open `index.html` in your browser to view the site.
 
