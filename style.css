@@ -5,6 +5,14 @@
     box-sizing: border-box;
 }
 
+a {
+    color: #66d9ff;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #ffffff;
+}
+
 body {
     font-family: Arial, sans-serif;
     color: #ffffff;
